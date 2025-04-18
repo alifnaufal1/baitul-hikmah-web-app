@@ -5,17 +5,12 @@ import { getToken } from "./api";
 
 const getAllPost = async () => {
   try {
-    const token = getToken();
-    console.log(token);
-
     const response = await fetch(`${baseURL}/posts`, {
       method: "GET",
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${getToken()}`,
       },
     });
-
-    console.log(response);
 
     if (!response.ok) throw new Error("Error fetch data");
 

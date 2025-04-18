@@ -14,11 +14,8 @@ export const LoginPage = () => {
       password: password,
     };
     const token = await login(userLogin);
-    if (token != "") {
-      navigate("/posts");
-    } else {
-      return alert("Error login");
-    }
+    if (token != "") navigate("/posts");
+    else return alert("Error login");
   };
   return (
     <>

@@ -1,5 +1,5 @@
 main {
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 10px;
   justify-content: center;

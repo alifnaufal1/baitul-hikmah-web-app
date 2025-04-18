@@ -3,7 +3,7 @@ import "./postContainer.css";
 
 export const PostContainer = ({ post }: { post: Post }) => {
   return (
-    <div className="container">
+    <div className="container" key={post.id}>
       <img src="public/working-space.jpg" alt="" />
       <div className="detail">
         <h2>{post.title}</h2>
