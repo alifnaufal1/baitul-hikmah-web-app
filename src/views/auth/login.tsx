@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
-import { login } from "../services/authService";
-import { UserLogin } from "../types/userType";
+import { login } from "../../services/authService";
+import { UserLogin } from "../../types/userType";
 import { useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {

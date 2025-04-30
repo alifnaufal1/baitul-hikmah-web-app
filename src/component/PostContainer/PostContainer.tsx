@@ -1,13 +1,25 @@
 import { Post } from "../../types/postType";
-import "./postContainer.css";
+import { ProfileIcon } from "../ProfileIcon/ProfileIcon";
 
 export const PostContainer = ({ post }: { post: Post }) => {
+  console.log(post);
   return (
-    <div className="container" key={post.id}>
-      <img src="public/working-space.jpg" alt="" />
-      <div className="detail">
-        <h2>{post.title}</h2>
-        <p>{post.created_at}</p>
+    <div className="w-80 rounded-md" key={post.id}>
+      <img
+        src={post.post_img || "abstract.jpg"}
+        alt=""
+        className="rounded-t-md w-full h-60 object-cover"
+      />
+      <div className="p-2">
+        <h2 className="text-2xl font-bold">{post.title}</h2>
+        <p className="p-1.5 font-light">{post.description}</p>
+        <div className="flex justify-between items-center">
+          <ProfileIcon
+            imageProfileURL={post.author_img}
+            profileName={post.author}
+          />
+          <p>{post.created_at}</p>
+        </div>
       </div>
     </div>
   );

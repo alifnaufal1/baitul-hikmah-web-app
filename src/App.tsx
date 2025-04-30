@@ -1,18 +1,28 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import { LoginPage } from "./views/login";
-import { HomePage } from "./views/home";
+import { LoginPage } from "./views/auth/login";
+import { PostPage } from "./views/posts/posts";
 import { ProtectedRoute } from "./component/ProtectedRoute";
+import { HomePage } from "./views/home/home";
+import { ProfilePage } from "./views/profile/profile";
 
 function App() {
   return (
     <Routes>
+      <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route
         path="/posts"
         element={
           <ProtectedRoute>
-            <HomePage />
+            <PostPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute>
+            <ProfilePage />
           </ProtectedRoute>
         }
       />

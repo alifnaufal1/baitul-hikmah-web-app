@@ -11,6 +11,7 @@ const getAllPost = async () => {
         Authorization: `Bearer ${getToken()}`,
       },
     });
+    console.log(response)
 
     if (!response.ok) throw new Error("Error fetch data");
 
