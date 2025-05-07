@@ -1,10 +1,15 @@
 import { Post } from "../../types/postType";
 import { ProfileIcon } from "../ProfileIcon/ProfileIcon";
 
-export const PostContainer = ({ post }: { post: Post }) => {
-  console.log(post);
+export const PostContainer = ({
+  post,
+  onClick,
+}: {
+  post: Post;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
+}) => {
   return (
-    <div className="w-80 rounded-md" key={post.id}>
+    <div className="w-80 rounded-md cursor-pointer" key={post.id} onClick={onClick}>
       <img
         src={post.post_img || "abstract.jpg"}
         alt=""

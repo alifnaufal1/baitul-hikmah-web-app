@@ -4,6 +4,7 @@ import { PostPage } from "./views/posts/posts";
 import { ProtectedRoute } from "./component/ProtectedRoute";
 import { HomePage } from "./views/home/home";
 import { ProfilePage } from "./views/profile/profile";
+import { DetailPostPage } from "./views/posts/detailPosts";
 
 function App() {
   return (
@@ -15,6 +16,14 @@ function App() {
         element={
           <ProtectedRoute>
             <PostPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/posts/:postID"
+        element={
+          <ProtectedRoute>
+            <DetailPostPage />
           </ProtectedRoute>
         }
       />
