@@ -1,0 +1,9 @@
+input[type="file"]::-webkit-file-upload-button {
+  background-color: #737373 !important;
+  color: white !important;
+  -moz-margin-left: 1rem;
+  margin-left: 1rem;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 6px;
+}

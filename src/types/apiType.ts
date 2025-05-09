@@ -10,6 +10,12 @@ export type Result<T> = {
   data: T;
 };
 
+export type ErrorRes = {
+  code: number;
+  results: Result<null>;
+  status: string;
+};
+
 export type LoginResult = {
   message: string;
   token: string;

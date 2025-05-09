@@ -1,5 +1,5 @@
 export type Category = {
-  id: number;
+  ID: number;
   name: string;
   description: string;
 };

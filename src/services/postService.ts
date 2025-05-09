@@ -1,4 +1,4 @@
-import { APIResponse, Result } from "../types/apiType";
+import { APIResponse, ErrorRes, Result } from "../types/apiType";
 import { DetailPost, Post } from "../types/postType";
 import { baseURL } from "../constant";
 import { getToken } from "./api";
@@ -43,4 +43,23 @@ const getDetailPost = async (postID: number) => {
   }
 };
 
-export { getAllPost, getDetailPost };
+const createPost = async (dataForm: FormData) => {
+  const response = await fetch(`${baseURL}/posts`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+    body: dataForm,
+  });
+
+  if (!response.ok) {
+    const errorData: ErrorRes = await response.json().catch(() => {});
+    console.log(errorData);
+    const errorMsg = errorData.results.message;
+    throw new Error(errorMsg);
+  }
+
+  return await response.json();
+};
+
+export { getAllPost, getDetailPost, createPost };

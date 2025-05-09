@@ -5,12 +5,21 @@ import { ProtectedRoute } from "./component/ProtectedRoute";
 import { HomePage } from "./views/home/home";
 import { ProfilePage } from "./views/profile/profile";
 import { DetailPostPage } from "./views/posts/detailPosts";
+import { WritePostPage } from "./views/posts/writePost";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route
+        path="/posts/:postID"
+        element={
+          <ProtectedRoute>
+            <DetailPostPage />
+          </ProtectedRoute>
+        }
+      />
       <Route
         path="/posts"
         element={
@@ -20,10 +29,10 @@ function App() {
         }
       />
       <Route
-        path="/posts/:postID"
+        path="/new-post"
         element={
           <ProtectedRoute>
-            <DetailPostPage />
+            <WritePostPage />
           </ProtectedRoute>
         }
       />
